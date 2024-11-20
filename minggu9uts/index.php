@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +50,6 @@
 
     <!-- Alert -->
     <div class="container">
-        <?php session_start(); ?>
         <?php if (isset($_SESSION['success'])): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <?= $_SESSION['success']; ?>
@@ -101,6 +109,11 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-8">
+                <?php
+                echo "<pre>";
+                print_r($_SESSION);
+                echo "</pre>";
+                ?>  
                 <h2>Company Profile</h2>
                 <p>Laundry Ui merupakan laundry yang lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, fuga laborum obcaecati ducimus officiis magni! Dolor aliquam nemo ratione consequuntur facere tenetur eaque sint minus vel qui esse quis at voluptates, exercitationem incidunt voluptatum modi culpa, praesentium voluptatibus atque inventore dolores mollitia velit! Voluptate, excepturi ut, cum laborum ea aspernatur et quas facere ipsa error dolore maxime fugit distinctio nobis tenetur facilis vero. Officia, quae eaque quam odio quos repellendus. Molestias eaque ipsam illum amet fugiat quae numquam dicta cumque, nostrum totam sit tempore, nemo laborum eius suscipit id ex! Expedita explicabo modi incidunt corrupti, voluptatum necessitatibus nesciunt illum nostrum?</p>
             </div>

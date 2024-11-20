@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@ session_start();
     <div class="container mt-3">
         <div class="d-flex justify-content-center align-items-center">
             <div class="card text-center border-primary" style="width: 60rem;">
-                <h2 class="fs-2 mb-4 mt-4">Mohon Login terlebih dahulu</h2>
+                <h2 class="fs-2 mb-4 mt-4">Pesan Laundry</h2>
 
                 <div class="card-body">
                     <form id="hargaForm">
@@ -48,7 +53,7 @@ session_start();
                                 <label class="form-label fs-5">Berat</label>
                             </div>
                             <div class="col-10">
-                                <input type="number" class="form-control" id="berat" name="berat" placeholder="Masukkan Berat (kg)" required>
+                                <input type="number" class="form-control" id="berat" name="berat" placeholder="Masukkan Berat (kg)" min="1" required>
                             </div>
                         </div>
                         <div class="row mb-3">

@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['a
     $loginSuccess = true;
 
     if ($loginSuccess) {
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password; 
         $_SESSION['success'] = "Login Success! Selamat datang!";
         header("Location: index.php");
         exit;
